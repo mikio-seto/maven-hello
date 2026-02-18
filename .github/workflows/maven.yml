@@ -5,6 +5,12 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
+
+permissions:
+   contents: write         # 依存関係グラフの更新に必要
+   pull-requests: write    # PRへのコメント投稿に必要
+   security-events: write  # Code Scanning（脆弱性レポート）のアップロードに必要
+
 jobs:
   frogbot:
     runs-on: ubuntu-latest
