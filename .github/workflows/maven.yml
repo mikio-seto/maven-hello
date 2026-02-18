@@ -1,0 +1,17 @@
+name: Frogbot
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  frogbot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Frogbot
+        uses: jfrog/frogbot@v2
+        env:
+          JF_URL: ${{ secrets.JF_URL }}
+          JF_USER: ${{ secrets.JF_USER }}
+          JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+          JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
